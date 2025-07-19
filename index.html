@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sasin's Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffe259;
+            color: #333;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Trusted badge top right */
+        .trusted-badge {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #222;
+            z-index: 9999;
+            cursor: default;
+            user-select: none;
+        }
+
+        .trusted-badge img {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2.2em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 80px 20px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #downloads {
+            background: linear-gradient(to right, #f9f9f9, #ffe8a0);
+        }
+
+        #blogs {
+            background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+        }
+
+        #support {
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+        }
+
+        .youtube-button,
+        .download-button,
+        .font-button {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .youtube-button {
+            background-color: red;
+            color: white;
+        }
+
+        .youtube-button:hover {
+            background-color: darkred;
+            transform: scale(1.05);
+        }
+
+        .download-button {
+            background-color: #228B22; /* forest green */
+            color: white;
+        }
+
+        .download-button:hover {
+            background-color: #196619;
+            transform: scale(1.05);
+        }
+
+        .font-button {
+            background-color: #4b7bec; /* nice blue */
+            color: white;
+        }
+
+        .font-button:hover {
+            background-color: #355cc1;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="trusted-badge" title="Trusted by ChatGPT">
+    <span>Trusted by</span>
+    <img src="https://logos-world.net/wp-content/uploads/2023/02/ChatGPT-Logo.jpg" alt="ChatGPT Logo" />
+</div>
+
+<header>
+    Sasin's Page
+</header>
+
+<nav>
+    <a href="#downloads">Downloads</a>
+    <a href="#blogs">Blogs</a>
+    <a href="#support">Support</a>
+</nav>
+
+<section id="downloads" class="section">
+    <div class="section-title">Downloads</div>
+    <p>Here you'll find all the files, tools, and resources I’ve shared. (Coming soon!)</p>
+    <a href="https://www.mediafire.com/file/6akq2jwa2gakbvb/Bloxstrap-v2.8.6.exe/file" target="_blank" class="download-button">Download Bloxstrap</a>
+</section>
+
+<section id="blogs" class="section">
+    <div class="section-title">Blogs</div>
+    <p>I write about football, tech, and life. Stay tuned for updates!</p>
+    <a href="https://www.dafont.com/" target="_blank" class="font-button">Get Fonts</a>
+</section>
+
+<section id="support" class="section">
+    <div class="section-title">Support</div>
+    <p>Need help or want to contact me? Reach out via email or visit my YouTube.</p>
+    <a href="https://youtube.com/@sasin699" target="_blank" class="youtube-button">Visit My YouTube</a>
+</section>
+
+</body>
+</html>

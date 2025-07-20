@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sasin's personal website with downloads, blogs, and support">
+    <meta name="description" content="Sasin's personal website with downloads and support">
     <title>Sasin | Developer & Content Creator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -95,11 +95,17 @@
             text-decoration: none;
         }
 
-        .logo img {
+        .logo-avatar {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            object-fit: cover;
+            background-color: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
         }
 
         /* Navigation */
@@ -410,19 +416,6 @@
             color: var(--gray);
         }
 
-        /* Blog Section */
-        .blog-card .card-img {
-            height: 180px;
-        }
-
-        .blog-date {
-            font-size: 0.8rem;
-            color: var(--gray);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
         /* Support Section */
         #support {
             background-color: rgba(244, 63, 94, 0.05);
@@ -462,6 +455,53 @@
         .support-text {
             color: var(--gray);
             margin-bottom: 1.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        .dark-mode .form-control {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
 
         /* Footer */
@@ -667,7 +707,10 @@
         @media (max-width: 576px) {
             .hero-title {
                 font-size: 2.2rem;
-            }
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
             
             .hero-buttons {
                 flex-direction: column;
@@ -680,6 +723,16 @@
             
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .download-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .download-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
             }
         }
 
@@ -715,7 +768,7 @@
 <header>
     <div class="header-content">
         <a href="#" class="logo">
-            <img src="https://avatars.githubusercontent.com/u/12345678?s=400&u=abcdefghijk123456789&v=4" alt="Sasin">
+            <div class="logo-avatar">S</div>
             <span>Sasin</span>
         </a>
         <div class="hamburger" onclick="toggleMenu()">
@@ -729,8 +782,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#downloads">Downloads</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="#support">Support</a></li>
+            <li><a href="#support">Contact</a></li>
         </ul>
     </div>
 </nav>
@@ -741,15 +793,15 @@
         <div class="hero-text fade-in">
             <h1 class="hero-title">Hello, I'm <span>Sasin</span></h1>
             <p class="hero-subtitle fade-in delay-1">
-                Developer, content creator, and tech enthusiast. I share useful tools, 
-                write about interesting topics, and create helpful content on YouTube.
+                Developer and tech enthusiast. I create useful tools for developers 
+                and share my knowledge through content.
             </p>
             <div class="hero-buttons fade-in delay-2">
                 <a href="#downloads" class="btn btn-primary">
-                    <i class="fas fa-download"></i> Downloads
+                    <i class="fas fa-download"></i> My Tools
                 </a>
                 <a href="https://youtube.com/@sasin699" target="_blank" class="btn btn-secondary">
-                    <i class="fab fa-youtube"></i> My YouTube
+                    <i class="fab fa-youtube"></i> YouTube
                 </a>
             </div>
         </div>
@@ -761,10 +813,9 @@
 
 <!-- Downloads Section -->
 <section id="downloads" class="section">
-    <h2 class="section-title">My Downloads</h2>
+    <h2 class="section-title">Developer Tools</h2>
     <p class="section-subtitle">
-        Here you'll find all the files, tools, and resources I've shared. 
-        Everything is tested and safe to use.
+        Useful utilities and kits for developers to enhance productivity and workflow.
     </p>
     
     <div class="download-item fade-in">
@@ -789,34 +840,35 @@
     
     <div class="download-item fade-in delay-1">
         <div class="download-icon">
-            <i class="fas fa-font"></i>
+            <i class="fas fa-code"></i>
         </div>
         <div class="download-info">
-            <h3 class="download-title">Font Collection</h3>
+            <h3 class="download-title">Dev Utility Kit</h3>
             <p class="download-description">
-                A curated collection of beautiful fonts for designers and developers.
+                A collection of essential tools and scripts to boost developer productivity.
+                Includes code snippets, automation scripts, and productivity boosters.
             </p>
             <div class="download-meta">
-                <span><i class="fas fa-file-archive"></i> 50+ Fonts</span>
-                <span><i class="fas fa-calendar-alt"></i> Updated: May 2023</span>
+                <span><i class="fas fa-file-archive"></i> 20+ Tools</span>
+                <span><i class="fas fa-calendar-alt"></i> Updated: July 2023</span>
             </div>
         </div>
-        <a href="https://www.dafont.com/" target="_blank" class="btn btn-primary">
-            Get Fonts
+        <a href="#" class="btn btn-primary">
+            Download
         </a>
     </div>
     
     <div class="download-item fade-in delay-2">
         <div class="download-icon">
-            <i class="fas fa-tools"></i>
+            <i class="fas fa-terminal"></i>
         </div>
         <div class="download-info">
-            <h3 class="download-title">Utility Toolkit</h3>
+            <h3 class="download-title">CLI Toolkit</h3>
             <p class="download-description">
-                A collection of small utilities and scripts to make your workflow easier.
+                Powerful command-line tools for developers to streamline their workflow.
             </p>
             <div class="download-meta">
-                <span><i class="fas fa-file-archive"></i> 15 Tools</span>
+                <span><i class="fas fa-file-archive"></i> 15 CLI Tools</span>
                 <span><i class="fas fa-calendar-alt"></i> Coming Soon</span>
             </div>
         </div>
@@ -826,104 +878,39 @@
     </div>
 </section>
 
-<!-- Blogs Section -->
-<section id="blogs" class="section">
-    <h2 class="section-title">Latest Blogs</h2>
-    <p class="section-subtitle">
-        I write about football, tech, and life. Stay tuned for updates!
-    </p>
-    
-    <div class="card-grid">
-        <div class="card blog-card fade-in">
-            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Football" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">The Evolution of Football Tactics</h3>
-                <p class="card-text">
-                    How modern football has changed from the traditional 4-4-2 to more fluid systems.
-                </p>
-            </div>
-            <div class="card-footer">
-                <span class="blog-date"><i class="far fa-calendar-alt"></i> Coming Soon</span>
-                <a href="#" class="btn btn-secondary">Read More</a>
-            </div>
-        </div>
-        
-        <div class="card blog-card fade-in delay-1">
-            <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Tech" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Essential Tools for Developers in 2023</h3>
-                <p class="card-text">
-                    My curated list of must-have tools and extensions for modern developers.
-                </p>
-            </div>
-            <div class="card-footer">
-                <span class="blog-date"><i class="far fa-calendar-alt"></i> Coming Soon</span>
-                <a href="#" class="btn btn-secondary">Read More</a>
-            </div>
-        </div>
-        
-        <div class="card blog-card fade-in delay-2">
-            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Life" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Balancing Work and Passion Projects</h3>
-                <p class="card-text">
-                    How I manage my time between work, content creation, and personal projects.
-                </p>
-            </div>
-            <div class="card-footer">
-                <span class="blog-date"><i class="far fa-calendar-alt"></i> Coming Soon</span>
-                <a href="#" class="btn btn-secondary">Read More</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Support Section -->
+<!-- Support/Contact Section -->
 <section id="support" class="section">
-    <h2 class="section-title">Get Support</h2>
+    <h2 class="section-title">Get In Touch</h2>
     <p class="section-subtitle">
-        Need help or want to get in touch? Here's how you can reach me.
+        Have questions or want to collaborate? Send me a message!
     </p>
     
-    <div class="support-options">
-        <div class="support-card fade-in">
-            <div class="support-icon">
-                <i class="fab fa-youtube"></i>
+    <div class="contact-form fade-in">
+        <form id="contactForm" action="https://formspree.io/f/ksanaysingh2011@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
             </div>
-            <h3 class="support-title">YouTube</h3>
-            <p class="support-text">
-                Check out my tutorials and content on YouTube. Leave a comment and I'll respond!
-            </p>
-            <a href="https://youtube.com/@sasin699" target="_blank" class="btn btn-primary">
-                Visit Channel
-            </a>
-        </div>
-        
-        <div class="support-card fade-in delay-1">
-            <div class="support-icon">
-                <i class="fab fa-github"></i>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
-            <h3 class="support-title">GitHub</h3>
-            <p class="support-text">
-                Explore my open-source projects and contribute if you're interested.
-            </p>
-            <a href="https://github.com/Sasin911" target="_blank" class="btn btn-primary">
-                View Profile
-            </a>
-        </div>
-        
-        <div class="support-card fade-in delay-2">
-            <div class="support-icon">
-                <i class="fas fa-envelope"></i>
+            
+            <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-control" required>
             </div>
-            <h3 class="support-title">Email</h3>
-            <p class="support-text">
-                For business inquiries or support questions, send me an email.
-            </p>
-            <a href="mailto:sasin@example.com" class="btn btn-primary">
-                Contact Me
-            </a>
-        </div>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+        </form>
     </div>
 </section>
 
@@ -933,8 +920,8 @@
         <div class="footer-column">
             <h3>About</h3>
             <p>
-                I'm Sasin, a developer and content creator passionate about 
-                sharing knowledge and creating useful tools.
+                I'm Sasin, a developer passionate about creating useful tools 
+                and sharing knowledge with the community.
             </p>
             <div class="social-links">
                 <a href="https://youtube.com/@sasin699" target="_blank" title="YouTube">
@@ -942,12 +929,6 @@
                 </a>
                 <a href="https://github.com/Sasin911" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
-                </a>
-                <a href="#" target="_blank" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
                 </a>
             </div>
         </div>
@@ -957,24 +938,22 @@
             <ul class="footer-links">
                 <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
                 <li><a href="#downloads"><i class="fas fa-chevron-right"></i> Downloads</a></li>
-                <li><a href="#blogs"><i class="fas fa-chevron-right"></i> Blogs</a></li>
-                <li><a href="#support"><i class="fas fa-chevron-right"></i> Support</a></li>
+                <li><a href="#support"><i class="fas fa-chevron-right"></i> Contact</a></li>
             </ul>
         </div>
         
         <div class="footer-column">
             <h3>Resources</h3>
             <ul class="footer-links">
-                <li><a href="https://www.dafont.com/" target="_blank"><i class="fas fa-chevron-right"></i> DaFont</a></li>
                 <li><a href="https://www.mediafire.com/" target="_blank"><i class="fas fa-chevron-right"></i> MediaFire</a></li>
-                <li><a href="#" target="_blank"><i class="fas fa-chevron-right"></i> Useful Tools</a></li>
+                <li><a href="#" target="_blank"><i class="fas fa-chevron-right"></i> Developer Tools</a></li>
                 <li><a href="#" target="_blank"><i class="fas fa-chevron-right"></i> Documentation</a></li>
             </ul>
         </div>
     </div>
     
     <div class="copyright">
-        &copy; 2023 Sasin. All rights reserved. Designed with ❤️ by Sasin.
+        &copy; 2023 Sasin. All rights reserved.
     </div>
 </footer>
 
@@ -1053,6 +1032,35 @@
             }
         });
     });
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                alert('There was a problem sending your message. Please try again later.');
+                console.error('Error:', error);
+            });
+        });
+    }
 </script>
 
 </body>
